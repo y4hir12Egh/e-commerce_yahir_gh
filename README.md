@@ -1,1 +1,1 @@
-conej
+del .git\index.lock
