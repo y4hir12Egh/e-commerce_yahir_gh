@@ -1,0 +1,84 @@
+body {
+    background-color: #f0f0f0; /* Fondo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.flower-container {
+    perspective: 800px; /* Para efecto 3D */
+}
+
+.flower {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d; /* Mantener 3D en hijos */
+    animation: rotateFlower 10s linear infinite; /* Animación de rotación */
+}
+
+.petal {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom center; /* Punto de origen para rotación */
+    width: 0;
+    height: 75px;
+    background: linear-gradient(to bottom, #ffd700, #ffb6c1); /* Amarillo a rosa */
+    border-radius: 50% 0 0 50%;
+    opacity: 0.8;
+    animation: bloom 2s ease-in-out forwards; /* Animación de apertura */
+}
+
+.petal:nth-child(1) {
+    transform: rotate(0deg) translateX(-50%);
+    animation-delay: 0.2s;
+}
+
+.petal:nth-child(2) {
+    transform: rotate(72deg) translateX(-50%);
+    animation-delay: 0.4s;
+}
+
+.petal:nth-child(3) {
+    transform: rotate(144deg) translateX(-50%);
+    animation-delay: 0.6s;
+}
+
+.petal:nth-child(4) {
+    transform: rotate(216deg) translateX(-50%);
+    animation-delay: 0.8s;
+}
+
+.petal:nth-child(5) {
+    transform: rotate(288deg) translateX(-50%);
+    animation-delay: 1s;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ff4500; /* Naranja */
+    border-radius: 50%;
+}
+
+@keyframes rotateFlower {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+@keyframes bloom {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 75px;
+        opacity: 0.8;
+    }
+}
